@@ -20,12 +20,19 @@ namespace BankTransactionsManagement.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginModel model)
+        public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             // Dummy authentication logic (replace with real user validation)
             if (model.Username == "admin" && model.Password == "password")
             {
                 var token = GenerateJwtToken(model.Username);
+                var kafkaProducer = new KafkaProducerService();
+                await kafkaProducer.SendUserLoginEventAsync(new UserLoginEvent
+                {
+                    UserId = model.Username,
+                    Email = "email@gmail.com",
+                    LoginTime = DateTime.UtcNow
+                });
                 return Ok(new { token });
             }
             return Unauthorized();

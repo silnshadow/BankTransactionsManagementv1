@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj": {}
+    "C:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj": {}
   },
   "projects": {
-    "c:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj": {
+    "C:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj",
+        "projectUniqueName": "C:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj",
         "projectName": "BankTransactionsManagement",
-        "projectPath": "c:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj",
+        "projectPath": "C:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj",
         "packagesPath": "C:\\Users\\prashantsingh4\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\obj\\",
+        "outputPath": "C:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\prashantsingh4\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Confluent.Kafka": {
+              "target": "Package",
+              "version": "[2.10.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.4, )"
