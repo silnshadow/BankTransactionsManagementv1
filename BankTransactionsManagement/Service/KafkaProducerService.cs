@@ -8,7 +8,7 @@ public class KafkaProducerService
 
     public KafkaProducerService()
     {
-        var config = new ProducerConfig { BootstrapServers = "localhost:9092" };
+        var config = new ProducerConfig { BootstrapServers = "localhost:29092" };
         _producer = new ProducerBuilder<Null, string>(config).Build();
     }
 
