@@ -10,6 +10,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddHttpClient();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<ForwardAuthTokenHandler>();
+builder.Services.AddScoped<VerificationProxyService>();
+builder.Services.AddHttpClient("Verification", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5140/");
+})
+.AddHttpMessageHandler<ForwardAuthTokenHandler>();
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 builder.Services.AddAuthentication(options =>
 {

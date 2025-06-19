@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj": {}
+    "c:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj": {
+    "c:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj",
+        "projectUniqueName": "c:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj",
         "projectName": "BankTransactionsManagement",
-        "projectPath": "C:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj",
+        "projectPath": "c:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj",
         "packagesPath": "C:\\Users\\prashantsingh4\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\obj\\",
+        "outputPath": "c:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\prashantsingh4\\AppData\\Roaming\\NuGet\\NuGet.Config"

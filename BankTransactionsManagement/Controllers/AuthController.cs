@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -8,15 +10,17 @@ using System.Text;
 
 namespace BankTransactionsManagement.Controllers
 {
+    
     [ApiController]
-    [Route("api/[controller]")]
+    [Microsoft.AspNetCore.Components.Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-
-        public AuthController(IConfiguration configuration)
+        private VerificationProxyService _verificationProxyService{ get; }
+        public AuthController(IConfiguration configuration, VerificationProxyService verificationProxyService)
         {
             _configuration = configuration;
+            _verificationProxyService = verificationProxyService ?? throw new ArgumentNullException(nameof(verificationProxyService));
         }
 
         [HttpPost("login")]
@@ -34,6 +38,18 @@ namespace BankTransactionsManagement.Controllers
                     LoginTime = DateTime.UtcNow
                 });
                 return Ok(new { token });
+            }
+            return Unauthorized();
+        }
+        [Authorize]
+        [HttpPost("initiateverification")]
+        public async Task<IActionResult> InitiateVerification([FromBody] LoginModel model)
+        {
+            // Dummy authentication logic (replace with real user validation)
+            if (model.Username == "admin")
+            {
+                var result = await _verificationProxyService.GetVerificationInitiationAsync(model.Username);
+                return Ok(result);
             }
             return Unauthorized();
         }

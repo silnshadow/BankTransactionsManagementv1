@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9zzSRW5v+Hg=",
+  "dgSpecHash": "15IqsqgEh9E=",
   "success": true,
-  "projectFilePath": "C:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj",
+  "projectFilePath": "c:\\Users\\prashantsingh4\\Downloads\\API Optimization\\Learning\\BankTransactionsManagement\\BankTransactionsManagement\\BankTransactionsManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\prashantsingh4\\.nuget\\packages\\confluent.kafka\\2.10.1\\confluent.kafka.2.10.1.nupkg.sha512",
     "C:\\Users\\prashantsingh4\\.nuget\\packages\\librdkafka.redist\\2.10.1\\librdkafka.redist.2.10.1.nupkg.sha512",
