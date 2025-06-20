@@ -31,12 +31,12 @@ namespace BankTransactionsManagement.Controllers
             {
                 var token = GenerateJwtToken(model.Username);
                 var kafkaProducer = new KafkaProducerService();
-                await kafkaProducer.SendUserLoginEventAsync(new UserLoginEvent
-                {
-                    UserId = model.Username,
-                    Email = "email@gmail.com",
-                    LoginTime = DateTime.UtcNow
-                });
+                // await kafkaProducer.SendUserLoginEventAsync(new UserLoginEvent
+                // {
+                //     UserId = model.Username,
+                //     Email = "email@gmail.com",
+                //     LoginTime = DateTime.UtcNow
+                // });
                 return Ok(new { token });
             }
             return Unauthorized();
@@ -63,7 +63,9 @@ namespace BankTransactionsManagement.Controllers
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, username),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                // new Claim("permission", "withdraw"),
+                new Claim("permission", "check"),
             };
 
             var token = new JwtSecurityToken(

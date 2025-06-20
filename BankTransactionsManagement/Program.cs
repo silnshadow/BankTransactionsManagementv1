@@ -42,6 +42,13 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"] ?? throw new InvalidOperationException("JWT Key is missing in configuration")))
     };
 });
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("CanWithdraw", policy =>
+        policy.RequireClaim("permission", "withdraw"));
+    options.AddPolicy("CanCheck", policy =>
+        policy.RequireClaim("permission", "check"));
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
