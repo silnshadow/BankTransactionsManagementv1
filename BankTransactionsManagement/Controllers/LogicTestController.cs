@@ -36,7 +36,7 @@ namespace BankTransactionsManagement.Controllers
             return Ok(createdEntryId);
         }
 
-        [HttpPost("withdraw")]
+    [HttpPost("withdraw")]
     [Authorize(Policy = "CanWithdraw")]
     public IActionResult Withdraw(/* params */)
     {
