@@ -64,7 +64,7 @@ namespace BankTransactionsManagement.Controllers
             {
                 new Claim(JwtRegisteredClaimNames.Sub, username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                // new Claim("permission", "withdraw"),
+                new Claim("permission", "withdraw"),
                 new Claim("permission", "check"),
             };
 
