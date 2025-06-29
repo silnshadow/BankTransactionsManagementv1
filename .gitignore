@@ -1,4 +1,64 @@
-BankTransactionsManagement/obj/Debug/net8.0/BankTransactionsManagement.AssemblyInfoInputs.cache
-BankTransactionsManagement/obj/Debug/net8.0/BankTransactionsManagement.AssemblyInfo.cs
-BankTransactionsManagement/obj/Debug/net8.0/BankTransactionsManagement.AssemblyInfo.cs
-BankTransactionsManagement/obj/Debug/net8.0/BankTransactionsManagement.AssemblyInfoInputs.cache
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*.[Cc]ache
+# but keep track of directories ending in .cache
+!?*.[Cc]ache/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
+
+# Log files
+*.log
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
