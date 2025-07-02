@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using BankTransactionsManagement.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +49,32 @@ builder.Services.AddAuthorization(options =>
         policy.RequireClaim("permission", "withdraw"));
     options.AddPolicy("CanCheck", policy =>
         policy.RequireClaim("permission", "check"));
+});
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddPolicy("LoginPolicy", context =>
+    {
+        // Get remote IP
+        var ip = context.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+        // Get user identifier (if authenticated)
+        var user = context.User?.Identity?.IsAuthenticated == true
+            ? context.User.Identity.Name
+            : "anonymous";
+        // Combine IP and user
+        var partitionKey = $"{ip}:{user}";
+
+        return RateLimitPartition.GetTokenBucketLimiter(
+            partitionKey: partitionKey,
+            factory: _ => new TokenBucketRateLimiterOptions
+            {
+                TokenLimit = 3,
+                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
+                QueueLimit = 0,
+                ReplenishmentPeriod = TimeSpan.FromMinutes(15),
+                TokensPerPeriod = 3,
+                AutoReplenishment = true
+            });
+    });
 });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -93,7 +120,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseMiddleware<BankTransactionsManagement.Middleware.ExceptionHandlingMiddleware>();
 app.UseHttpsRedirection();
-
+app.UseRateLimiter();
 app.UseAuthorization();
 
 app.MapControllers();
