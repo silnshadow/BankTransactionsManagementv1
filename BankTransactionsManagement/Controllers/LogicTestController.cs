@@ -9,7 +9,6 @@ namespace BankTransactionsManagement.Controllers
     [Route("api/[controller]")]
     public class LogicTestController : ControllerBase
     {
-        [Authorize]
         [HttpGet("test")]
         public async Task<string> TestLogic()
         {
