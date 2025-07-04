@@ -33,12 +33,19 @@ namespace BankTransactionsManagement.Controllers
             {
                 var token = GenerateJwtToken(model.Username);
                 var kafkaProducer = new KafkaProducerService();
+                // In Azure, ensure your Kafka broker is accessible (e.g., via Azure Event Hubs for Kafka or a managed Kafka service).
+                // Use secure connection strings and credentials from Azure Key Vault or configuration.
+                // Example usage (uncomment and configure as needed):
+
                 // await kafkaProducer.SendUserLoginEventAsync(new UserLoginEvent
                 // {
                 //     UserId = model.Username,
                 //     Email = "email@gmail.com",
                 //     LoginTime = DateTime.UtcNow
                 // });
+
+                // Validate connectivity by checking logs, using Azure Monitor, or testing with a health check endpoint.
+                // Make sure firewall rules, VNET, and authentication are properly configured for your Kafka endpoint in Azure.
                 return Ok(new { token });
             }
             return Unauthorized();
