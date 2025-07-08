@@ -105,7 +105,13 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        policy => policy.WithOrigins("http://localhost:63588/") // Angular dev server
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -121,8 +127,8 @@ if (app.Environment.IsDevelopment())
 app.UseMiddleware<BankTransactionsManagement.Middleware.ExceptionHandlingMiddleware>();
 app.UseHttpsRedirection();
 app.UseRateLimiter();
+app.UseCors("AllowAngularApp");
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
